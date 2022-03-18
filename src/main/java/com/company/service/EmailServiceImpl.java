@@ -24,7 +24,7 @@ import java.util.Optional;
     4. Get not used send email (pagination)*/
 
 @Service
-public class EmailService implements  {
+public class EmailServiceImpl{
     @Autowired
     private JavaMailSender javaMailSender;
     @Autowired

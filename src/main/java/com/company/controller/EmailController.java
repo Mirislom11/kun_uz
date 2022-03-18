@@ -1,8 +1,7 @@
 package com.company.controller;
 
-import com.company.dto.ProfileJwtDTO;
 import com.company.enums.ProfileRole;
-import com.company.service.EmailService;
+import com.company.service.EmailServiceImpl;
 import com.company.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,26 +15,26 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/email")
 public class EmailController {
     @Autowired
-    private EmailService emailService;
+    private EmailServiceImpl emailServiceImpl;
     @GetMapping("/get-ALL")
     public ResponseEntity<?> getAllEmail (HttpServletRequest request) {
         JwtUtil.getProfile(request, ProfileRole.ADMIN_ROLE);
-        return ResponseEntity.ok(emailService.getAllEmail());
+        return ResponseEntity.ok(emailServiceImpl.getAllEmail());
     }
     @GetMapping("/get-today-email")
     public ResponseEntity<?> getTodayEmailList(HttpServletRequest request) {
         JwtUtil.getProfile(request, ProfileRole.ADMIN_ROLE);
-        return ResponseEntity.ok(emailService.getTodayEmailList());
+        return ResponseEntity.ok(emailServiceImpl.getTodayEmailList());
     }
     @GetMapping("/get-last-email")
     public ResponseEntity<?> getLastEmail (HttpServletRequest request) {
         JwtUtil.getProfile(request, ProfileRole.ADMIN_ROLE);
-        return ResponseEntity.ok(emailService.getLastEmail());
+        return ResponseEntity.ok(emailServiceImpl.getLastEmail());
     }
     @GetMapping("/get-NOT-USED-email")
     public ResponseEntity<?> getNotUsedEmail (HttpServletRequest request){
         JwtUtil.getProfile(request, ProfileRole.ADMIN_ROLE);
-        return ResponseEntity.ok(emailService.getNotUsedSendEmail());
+        return ResponseEntity.ok(emailServiceImpl.getNotUsedSendEmail());
     }
 
 }

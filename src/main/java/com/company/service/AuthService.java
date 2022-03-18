@@ -24,7 +24,7 @@ public class AuthService {
     @Autowired
     private ProfileRepository profileRepository;
     @Autowired
-    private EmailService emailService;
+    private EmailServiceImpl emailServiceImpl;
 
     public ProfileDTO authorization(AuthorizationDTO dto) {
         ProfileEntity profile =  profileService.getByLoginAndPaswd(dto.getLogin(), dto.getPassword());
@@ -52,10 +52,10 @@ public class AuthService {
         stringBuilder.append("Salom jigar qalaysan\n");
         stringBuilder.append("Agar bu seng bolsang Shu linkga bos: ");
         stringBuilder.append("http://10.10.5.93/auth/verification/" + responseId);
-        EmailEntity email = emailService.createEmail(registrationDTO.getEmail(), "Registration KunUz Test", stringBuilder.toString());
-        emailService.sendEmail(email);
+        EmailEntity email = emailServiceImpl.createEmail(registrationDTO.getEmail(), "Registration KunUz Test", stringBuilder.toString());
+        emailServiceImpl.sendEmail(email);
         email.setEmailStatus(EmailStatus.USED);
-        emailService.saveEmail(email);
+        emailServiceImpl.saveEmail(email);
     }
 
     public void activeUser (Integer id){
