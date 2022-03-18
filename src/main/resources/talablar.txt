@@ -1,0 +1,27 @@
+************* Kun.uz yangiliklar sayti *************
+
+***** Entity
+1. Profile
+2. UserRole
+3. Article
+4. Comment
+5. Like
+6. ArticleType (sport,siyosat,zahon,...)
+7. Region (Toshkent,Xorazm, Buxoro, Jizzax)
+
+
+
+**** Functionality
+
+1. Profile
+    1. Registration with email verification
+    2. Authorization
+    3. Update Profile (name,surname,login, password)
+    4. Update Profile (email) with email sending verification
+
+2. Article
+    CRUD
+    1. get todays article list
+    2. get article list by region
+    3. get article list by profile
+    4. get article by type
